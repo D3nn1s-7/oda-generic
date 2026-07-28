@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 - 2026-07-28
+
+- **FIX:** Klick auf einen Hash-Link, der bereits die aktive Seite bezeichnet, rendert die Seite jetzt neu (`setupSamePageLinks()`). Bisher löste ein solcher Klick kein `hashchange` aus und blieb wirkungslos — das betraf vor allem das Logo oben links, sobald eine App innerhalb der Startseite in eine Unteransicht gewechselt war (Formular, Detailseite, Slideshow, Analyseergebnis)
+- **ENH:** Die Liste der gültigen Seiten liegt als Konstante `VALID_PAGES` vor, statt in `getPageFromHash()` eingebettet zu sein; Routing und Klick-Handler teilen sie sich
+
 ## 1.2.0 - 2026-07-23
 
 - **ENH:** Einfachen Standalone-Betrieb hinter Traefik mit derselben `odas-config/config.json` wie in der Entwicklung ergänzt

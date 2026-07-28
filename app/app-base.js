@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.addEventListener("hashchange", () => {
       handleRouting().catch(renderRuntimeError);
     });
+    setupSamePageLinks();
 
     const initialPage = getPageFromHash();
     if (window.location.hash !== `#${initialPage}`) {
@@ -210,19 +211,56 @@ function setupBurgerMenu() {
   });
 }
 
+const VALID_PAGES = [
+  "startseite",
+  "beschreibung",
+  "kontakt",
+  "datenschutz",
+  "impressum",
+];
+
 function getPageFromHash() {
   const hash = window.location.hash.replace("#", "").trim();
-  const validPages = [
-    "startseite",
-    "beschreibung",
-    "kontakt",
-    "datenschutz",
-    "impressum",
-  ];
-  if (validPages.includes(hash)) {
+  if (VALID_PAGES.includes(hash)) {
     return hash;
   }
   return "startseite";
+}
+
+/*
+ * Ein Klick auf einen Hash-Link, der bereits die aktive Seite bezeichnet, aendert den
+ * Hash nicht und loest deshalb kein "hashchange" aus. Ohne diesen Handler bliebe zum
+ * Beispiel das Logo oben links wirkungslos, sobald die App innerhalb der Startseite in
+ * eine Unteransicht gewechselt ist (Formular, Detailseite, Slideshow, Analyseergebnis).
+ * Hier wird der Rerender deshalb selbst angestossen.
+ */
+function setupSamePageLinks() {
+  document.addEventListener("click", (event) => {
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    const target = event.target;
+    const link =
+      target && typeof target.closest === "function"
+        ? target.closest('a[href^="#"]')
+        : null;
+    if (!link) return;
+
+    const page = (link.getAttribute("href") || "").replace("#", "").trim();
+    if (!VALID_PAGES.includes(page)) return;
+    if (getPageFromHash() !== page) return;
+
+    event.preventDefault();
+    handleRouting().catch(renderRuntimeError);
+  });
 }
 
 function updateActiveNavLink(page) {
