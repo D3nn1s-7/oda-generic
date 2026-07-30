@@ -159,6 +159,16 @@ function updatePageContent() {
 }
 
 async function loadPage(page) {
+  /*
+   * Optionaler App-Hook. Wird vor dem Rendern der neuen Seite aufgerufen und erlaubt der
+   * App, ihre Laufzeit-Ressourcen abzuraeumen: Karten entfernen, Intervalle stoppen,
+   * Event-Listener loesen. In app/app.js als `function onPageLeave(page) {...}`
+   * definierbar; fehlt die Funktion, passiert nichts.
+   */
+  if (typeof onPageLeave === "function") {
+    onPageLeave(page);
+  }
+
   let content;
   switch (page) {
     case "startseite":
@@ -199,11 +209,20 @@ function setupBurgerMenu() {
       (href ? href.replace("#", "").trim() : "");
     if (pageName) {
       link.addEventListener("click", () => {
+        // Offcanvas-Navigation (Standardfall des Templates)
         const offcanvasNavbar = document.getElementById("offcanvasNavbar");
         if (offcanvasNavbar && typeof bootstrap !== "undefined") {
           const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasNavbar);
           if (offcanvas && offcanvasNavbar.classList.contains("show")) {
             offcanvas.hide();
+          }
+        }
+        // Collapse-Navigation, sofern die App eine solche verwendet
+        const collapseNavbar = document.getElementById("navbarNav");
+        if (collapseNavbar && typeof bootstrap !== "undefined") {
+          const collapse = bootstrap.Collapse.getInstance(collapseNavbar);
+          if (collapse && collapseNavbar.classList.contains("show")) {
+            collapse.hide();
           }
         }
       });

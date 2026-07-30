@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "generic",
   "name": "Generic Open Data App",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
   "kurzbeschreibung": "Technische ODAS-Vorlage mit Hash-Routing, Instanz-Konfiguration und optionalem Proxy-Muster für neue Open-Data-Apps.",

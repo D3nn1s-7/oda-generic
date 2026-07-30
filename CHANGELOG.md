@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0 - 2026-07-30
+
+- **ENH:** Neuer optionaler App-Hook `onPageLeave(page)`. Die Base ruft ihn am Anfang von `loadPage()` auf, bevor die neue Seite gerendert wird; Apps räumen darin Karten, Intervalle und Event-Listener ab. Damit können auch Apps mit eigenen Laufzeit-Ressourcen eine unveränderte `app/app-base.js` verwenden
+- **ENH:** `setupBurgerMenu()` schließt jetzt auch eine Collapse-Navigation (`#navbarNav`), nicht nur das Offcanvas-Menü. Apps ohne Collapse-Navigation bleiben unberührt
+
 ## 1.3.0 - 2026-07-28
 
 - **FIX:** Klick auf einen Hash-Link, der bereits die aktive Seite bezeichnet, rendert die Seite jetzt neu (`setupSamePageLinks()`). Bisher löste ein solcher Klick kein `hashchange` aus und blieb wirkungslos — das betraf vor allem das Logo oben links, sobald eine App innerhalb der Startseite in eine Unteransicht gewechselt war (Formular, Detailseite, Slideshow, Analyseergebnis)

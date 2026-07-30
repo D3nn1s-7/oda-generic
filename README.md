@@ -38,6 +38,25 @@ Die Funktion `app(configdata, enclosingHtmlDivElement)` erzeugt den Startseiteni
 `addToHead()` bleibt außerhalb und nach `app()` definiert. Optionale Bibliotheken werden
 in konkreten Apps über dedizierte Promise-basierte Loader aus `app/app.js` geladen.
 
+Gibt `app()` einen String zurück, schreibt die Base ihn nach `#main-content`. Rendert die
+App stattdessen selbst in das übergebene Element, gibt sie nichts (bzw. `null`) zurück;
+die Base lässt den Inhaltsbereich dann unangetastet.
+
+### Optionaler Hook `onPageLeave(page)`
+
+Apps mit Laufzeit-Ressourcen — einer Leaflet-Karte, einem `setInterval`, offenen
+Event-Listenern — definieren in `app/app.js`:
+
+```js
+function onPageLeave(page) {
+  // page ist die Seite, die gleich gerendert wird ("startseite", "impressum", …)
+}
+```
+
+Die Base ruft die Funktion am Anfang von `loadPage()` auf, also **vor** dem Rendern der
+neuen Seite. Fehlt sie, passiert nichts. Damit bleibt `app/app-base.js` unverändert zum
+Template, auch wenn eine App beim Seitenwechsel aufräumen muss.
+
 ## Konfiguration
 
 | Parameter | Zweck | Pflicht |
