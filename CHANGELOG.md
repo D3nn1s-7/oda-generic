@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.7.0 - 2026-08-04
+- **ENH:** Bootstrap 5.3.8 vendored in `app/vendor/bootstrap/` (CSS + Bundle-JS), `app/index.html` laedt es ueber einen relativen Pfad statt von jsDelivr (F-07 Teil 2). `app/vendor/leaflet/` und `app/vendor/chartjs/` liegen als Vorlage fuer Apps bereit, die diese Bibliotheken nutzen. Im Browser verifiziert: keine CDN-Requests, Layout und Offcanvas-Navigation unveraendert
+
 ## 1.6.0 - 2026-08-04
 - **ENH:** Neuer optionaler App-Hook `renderPageOverride(page)`. Die Base ruft ihn am Anfang von `loadPage()` auf; liefert er Markup zurück, ersetzt es den Standard-Content der jeweiligen Seite, ohne dass die App `loadPage()` selbst per Monkey-Patch überschreiben muss. Fehlt die Funktion oder liefert sie `undefined`/`null`, greift der bisherige Standard-Content aus dem switch-Block
 

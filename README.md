@@ -18,7 +18,23 @@ Screenshots und Icon durch app-spezifische Inhalte ersetzt werden.
 - konfigurierbares Portal-Logo mit Link zur Startseite
 - lokale Konfigurationsvorschau mit maskierter HTML-Ausgabe
 - direkter Datenabruf oder ODAS-Proxy über `proxyAktiv`
-- Bootstrap 5.3.8 ohne Build-Schritt
+- Bootstrap 5.3.8 vendored in `app/vendor/bootstrap/` — kein CDN-Request, kein Build-Schritt
+
+## Vendorte Bibliotheken
+
+`app/vendor/` liefert Bootstrap 5.3.8 direkt mit der App aus, statt es von einem CDN
+(jsDelivr) zu laden — Voraussetzung für einen tatsächlich autarken Standalone-Betrieb
+(F-07 Teil 2). Referenziert wird es in `app/index.html` mit einem einfachen relativen
+Pfad (`vendor/bootstrap/…`), genau wie `app-base.css` oder `app.js` — das funktioniert
+unverändert in allen drei Betriebsarten (ODAS-Live, Docker-Standalone, lokaler Test),
+weil `vendor/` **innerhalb** von `app/` liegt und damit nicht der pfadabhängigen
+Auflösung aus F-29 unterliegt (die nur Geschwisterverzeichnisse von `app/` betrifft, wie
+`assets/`).
+
+Apps, die zusätzlich Leaflet und/oder Chart.js nutzen, kopieren `app/vendor/leaflet/`
+bzw. `app/vendor/chartjs/` aus diesem Template und laden sie über ihre bestehenden
+Promise-basierten Loader (`loadScriptOnce`/`loadStyleOnce` in `app/app.js`) mit
+demselben relativen Pfadmuster, statt von `unpkg.com`/`cdn.jsdelivr.net`.
 
 ## Für wen ist diese Vorlage?
 
