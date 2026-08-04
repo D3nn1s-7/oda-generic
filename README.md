@@ -57,6 +57,26 @@ Die Base ruft die Funktion am Anfang von `loadPage()` auf, also **vor** dem Rend
 neuen Seite. Fehlt sie, passiert nichts. Damit bleibt `app/app-base.js` unverändert zum
 Template, auch wenn eine App beim Seitenwechsel aufräumen muss.
 
+### Optionaler Hook `renderPageOverride(page)`
+
+Apps, die den Standard-Content einer der festen Seiten (`startseite`, `beschreibung`,
+`kontakt`, `datenschutz`, `impressum`) durch eigenes Markup ersetzen wollen, definieren in
+`app/app.js`:
+
+```js
+function renderPageOverride(page) {
+  if (page === "beschreibung") {
+    return "<div>…eigenes Markup…</div>";
+  }
+  return null; // für alle anderen Seiten den Standard-Content der Base verwenden
+}
+```
+
+Die Base ruft die Funktion am Anfang von `loadPage()` auf. Liefert sie `undefined` oder
+`null` zurück (oder fehlt sie), rendert `loadPage()` den bisherigen Standard-Content aus
+dem `switch`-Block. Damit muss eine App `loadPage()` nicht per Monkey-Patch überschreiben,
+um einzelne Seiten anzupassen.
+
 ## Konfiguration
 
 | Parameter | Zweck | Pflicht |

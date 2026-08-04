@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.6.0 - 2026-08-04
+- **ENH:** Neuer optionaler App-Hook `renderPageOverride(page)`. Die Base ruft ihn am Anfang von `loadPage()` auf; liefert er Markup zurück, ersetzt es den Standard-Content der jeweiligen Seite, ohne dass die App `loadPage()` selbst per Monkey-Patch überschreiben muss. Fehlt die Funktion oder liefert sie `undefined`/`null`, greift der bisherige Standard-Content aus dem switch-Block
+
 ## 1.5.0 - 2026-08-04
 - FIX: Drittanbieter (CDN, Kartendienste) in `datenschutz`-Default und README dokumentiert (F-07 Teil 1)
 
