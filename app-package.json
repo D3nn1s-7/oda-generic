@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "generic",
   "name": "Generic Open Data App",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
   "kurzbeschreibung": "Technische ODAS-Vorlage mit Hash-Routing, Instanz-Konfiguration und optionalem Proxy-Muster für neue Open-Data-Apps.",
@@ -14,9 +14,17 @@
     "Die mitgelieferte Konfigurationsvorschau macht den wirksamen Instanz-Stand sichtbar und erleichtert die lokale Entwicklung.",
     "Vor einer Veröffentlichung werden Fachlogik, Metadaten, Datenmodell, Beschreibung, Screenshots und Icon durch app-spezifische Inhalte ersetzt."
   ],
-  "tags-funktion": ["Vorlage", "Konfigurationsvorschau", "Proxy"],
-  "tags-dateityp": ["JSON"],
-  "tags-datenart": ["Konfigurationsdaten"],
+  "tags-funktion": [
+    "Vorlage",
+    "Konfigurationsvorschau",
+    "Proxy"
+  ],
+  "tags-dateityp": [
+    "JSON"
+  ],
+  "tags-datenart": [
+    "Konfigurationsdaten"
+  ],
   "screenshots": [
     "assets/Desktop_Screenshot.png",
     "assets/Mobile_Screenshot.png"
@@ -123,7 +131,8 @@
       "hilfe": "Der HTML-Inhalt wird im Menüpunkt Datenschutz angezeigt.",
       "default": [
         "_multiline_",
-        "<p>Die Generic-App verarbeitet im Browser nur die vom ODAS bereitgestellte Instanz-Konfiguration. Für eine abgeleitete App ist die Datenschutzerklärung an die tatsächlich geladenen Daten und eingebundenen Dienste anzupassen.</p>"
+        "<p>Die Generic-App verarbeitet im Browser nur die vom ODAS bereitgestellte Instanz-Konfiguration. Für eine abgeleitete App ist die Datenschutzerklärung an die tatsächlich geladenen Daten und eingebundenen Dienste anzupassen.</p>",
+        "<h3>Beim Aufruf kontaktierte Drittanbieter</h3><p>Beim Aufruf dieser App werden Bibliotheken bzw. Kartendienste von folgenden externen Servern geladen. Dabei werden IP-Adresse und User-Agent der Besucher:innen an diese Anbieter übertragen:</p><ul><li><strong>cdn.jsdelivr.net</strong> — Bootstrap (Layout- und UI-Framework)</li></ul>"
       ],
       "format": {
         "typ": "markdown"
@@ -188,7 +197,10 @@
       "default": "nein",
       "format": {
         "typ": "dropdown",
-        "optionen": ["nein", "ja"]
+        "optionen": [
+          "nein",
+          "ja"
+        ]
       },
       "erforderlich": "ja"
     }

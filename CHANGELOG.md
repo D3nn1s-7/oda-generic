@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.0 - 2026-08-04
+- FIX: Drittanbieter (CDN, Kartendienste) in `datenschutz`-Default und README dokumentiert (F-07 Teil 1)
+
 ## 1.4.0 - 2026-07-30
 
 - **ENH:** Neuer optionaler App-Hook `onPageLeave(page)`. Die Base ruft ihn am Anfang von `loadPage()` auf, bevor die neue Seite gerendert wird; Apps räumen darin Karten, Intervalle und Event-Listener ab. Damit können auch Apps mit eigenen Laufzeit-Ressourcen eine unveränderte `app/app-base.js` verwenden
