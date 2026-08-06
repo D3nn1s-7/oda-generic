@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "generic",
   "name": "Generic Open Data App",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
   "kurzbeschreibung": "Technische ODAS-Vorlage mit Hash-Routing, Instanz-Konfiguration und optionalem Proxy-Muster für neue Open-Data-Apps.",
@@ -131,7 +131,9 @@
       "hilfe": "Der HTML-Inhalt wird im Menüpunkt Datenschutz angezeigt.",
       "default": [
         "_multiline_",
-        "<p>Die Generic-App verarbeitet im Browser nur die vom ODAS bereitgestellte Instanz-Konfiguration. Für eine abgeleitete App ist die Datenschutzerklärung an die tatsächlich geladenen Daten und eingebundenen Dienste anzupassen.</p>"
+        "<p>Die Generic-App verarbeitet im Browser nur die vom ODAS bereitgestellte Instanz-Konfiguration. Für eine abgeleitete App ist die Datenschutzerklärung an die tatsächlich geladenen Daten und eingebundenen Dienste anzupassen.</p>",
+        "<p>Alle für die Darstellung benötigten Programmbibliotheken werden mit der App ausgeliefert. Beim Aufruf werden dafür keine externen Server kontaktiert.</p>",
+        "<p>Die Vorlage ruft selbst keine Datenquelle ab; das Laden der konfigurierten Datenquelle ist Sache der abgeleiteten App und wird in deren Datenschutzerklärung beschrieben.</p>"
       ],
       "format": {
         "typ": "markdown"

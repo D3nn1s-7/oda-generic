@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.9.0 - 2026-08-06
+- FIX: Datenschutzangabe beschreibt den tatsaechlichen Stand nach dem Vendoring (Welle G)
+
 ## 1.8.0 - 2026-08-06
 - **FIX:** Abschnitt „Beim Aufruf kontaktierte Drittanbieter" in `app-package.json`, `odas-config/config.json` und README entfernt — Bootstrap liegt in `app/vendor/bootstrap/` und wird nicht mehr extern geladen (F-07 Teil 2, Nachzug)
 
