@@ -36,8 +36,7 @@
     "<p>Telefon: 0711 31009-3100<br>E-Mail: <a href='mailto:info@ondics.de'>info@ondics.de</a></p>"
   ],
   "datenschutz": [
-    "<p>Die Generic-App verarbeitet im Browser nur die lokal bereitgestellte Instanz-Konfiguration. Für eine abgeleitete App ist die Datenschutzerklärung an die tatsächlich geladenen Daten und eingebundenen Dienste anzupassen.</p>",
-    "<h3>Beim Aufruf kontaktierte Drittanbieter</h3><p>Beim Aufruf dieser App werden Bibliotheken bzw. Kartendienste von folgenden externen Servern geladen. Dabei werden IP-Adresse und User-Agent der Besucher:innen an diese Anbieter übertragen:</p><ul><li><strong>cdn.jsdelivr.net</strong> — Bootstrap (Layout- und UI-Framework)</li></ul>"
+    "<p>Die Generic-App verarbeitet im Browser nur die lokal bereitgestellte Instanz-Konfiguration. Für eine abgeleitete App ist die Datenschutzerklärung an die tatsächlich geladenen Daten und eingebundenen Dienste anzupassen.</p>"
   ],
   "fusszeile": "© 2026 | App und Daten: Ondics GmbH | Entwicklung: Ondics GmbH | ODAS: Ondics GmbH",
   "brandingCSS": "",

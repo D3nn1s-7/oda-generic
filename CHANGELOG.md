@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.8.0 - 2026-08-06
+- **FIX:** Abschnitt „Beim Aufruf kontaktierte Drittanbieter" in `app-package.json`, `odas-config/config.json` und README entfernt — Bootstrap liegt in `app/vendor/bootstrap/` und wird nicht mehr extern geladen (F-07 Teil 2, Nachzug)
+
 ## 1.7.0 - 2026-08-04
 - **ENH:** Bootstrap 5.3.8 vendored in `app/vendor/bootstrap/` (CSS + Bundle-JS), `app/index.html` laedt es ueber einen relativen Pfad statt von jsDelivr (F-07 Teil 2). `app/vendor/leaflet/` und `app/vendor/chartjs/` liegen als Vorlage fuer Apps bereit, die diese Bibliotheken nutzen. Im Browser verifiziert: keine CDN-Requests, Layout und Offcanvas-Navigation unveraendert
 
