@@ -143,10 +143,9 @@ und aktualisieren gleichzeitig den `daten`-Block in `app-package.json`.
 make build up
 ```
 
-Die App ist anschließend unter <http://localhost:8090> erreichbar. Für lokale Tests muss
-der dafür vorgesehene Localhost-Block in `app/app-base.js` vorübergehend auskommentiert
-werden, damit `odas-config/config.json` geladen wird. Vor ZIP-Erstellung oder Live-Auslieferung
-wird der Block wieder in den kommentierten Template-Zustand versetzt.
+Die App ist anschließend unter <http://localhost:8090> erreichbar. Die App erkennt
+Localhost (127.0.0.1/localhost) automatisch und lädt dann `odas-config/config.json`;
+kein Edit an `app/app-base.js` nötig.
 
 ### VS Code Live Server
 
@@ -162,8 +161,8 @@ Live Server wird aus der Projektwurzel gestartet. Die App liegt dann üblicherwe
 ```
 
 `liveServer.settings.root` bleibt `/`, damit `app/` und `odas-config/` als Geschwisterpfade
-erreichbar sind. Auch hier wird der Localhost-Block nur für den Test aktiviert und danach
-wieder zurückgesetzt.
+erreichbar sind. Auch hier erkennt die App Localhost automatisch und lädt `odas-config/config.json`;
+kein Edit an `app/app-base.js` nötig.
 
 ## Prüfung und Auslieferung
 
