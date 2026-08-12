@@ -40,6 +40,7 @@
   "instanz-config": {
     "seitentitel": {
       "label": "Seitentitel",
+      "category": "general",
       "hilfe": "Der Seitentitel wird im Browser-Tab der App angezeigt.",
       "default": "Generic Open Data App",
       "format": {
@@ -50,6 +51,7 @@
     },
     "titel": {
       "label": "Titel",
+      "category": "general",
       "hilfe": "Der Titel wird in der Kopfzeile der App angezeigt.",
       "default": "Generic Open Data App",
       "format": {
@@ -60,6 +62,7 @@
     },
     "icon": {
       "label": "Portal-Logo",
+      "category": "general",
       "hilfe": "Das Logo wird links oben in der Kopfzeile angezeigt und führt zur Startseite.",
       "default": "{{{odp.logo}}}",
       "format": {
@@ -71,6 +74,7 @@
     },
     "kontakt": {
       "label": "Kontakt",
+      "category": "contact-legal",
       "hilfe": "Der HTML-Inhalt wird im Menüpunkt Kontakt angezeigt.",
       "default": [
         "_multiline_",
@@ -84,6 +88,7 @@
     },
     "beschreibung": {
       "label": "Beschreibung",
+      "category": "content",
       "hilfe": "Der HTML-Inhalt wird im Menüpunkt Über diese App angezeigt.",
       "default": [
         "_multiline_",
@@ -109,6 +114,7 @@
     },
     "impressum": {
       "label": "Impressum",
+      "category": "contact-legal",
       "hilfe": "Der HTML-Inhalt wird im Menüpunkt Impressum angezeigt.",
       "default": [
         "_multiline_",
@@ -128,6 +134,7 @@
     },
     "datenschutz": {
       "label": "Datenschutz",
+      "category": "contact-legal",
       "hilfe": "Der HTML-Inhalt wird im Menüpunkt Datenschutz angezeigt.",
       "default": [
         "_multiline_",
@@ -142,6 +149,7 @@
     },
     "fusszeile": {
       "label": "Fußzeile",
+      "category": "contact-legal",
       "hilfe": "Der HTML-Inhalt wird am unteren Rand der App angezeigt.",
       "default": "© {{jahr}} | App und Daten: {{odp.anbieter.name}} | Entwicklung: {{app.developer.name}} | ODAS: {{odas.betreiber.name}}",
       "format": {
@@ -152,6 +160,7 @@
     },
     "brandingCSS": {
       "label": "Zusätzliches Branding-CSS",
+      "category": "advanced",
       "hilfe": "Optionaler CSS-Code für die konkrete App-Instanz.",
       "default": "",
       "format": {
@@ -162,6 +171,7 @@
     },
     "brandingCSSFile": {
       "label": "Branding-CSS-Datei",
+      "category": "advanced",
       "hilfe": "Optionale URL zu einer zusätzlichen CSS-Datei für die konkrete App-Instanz.",
       "default": "",
       "format": {
@@ -172,6 +182,7 @@
     },
     "urlDaten": {
       "label": "URL zum Datensatz",
+      "category": "datasource",
       "hilfe": "Katalog- oder Metadatenseite des tatsächlich verwendeten Datensatzes.",
       "default": "",
       "beispiel": "",
@@ -183,6 +194,7 @@
     },
     "apiurl": {
       "label": "URL zur Datenressource",
+      "category": "datasource",
       "hilfe": "Direkter Download-, Datei- oder API-Endpunkt der tatsächlich verwendeten Datenquelle.",
       "default": "",
       "beispiel": "",
@@ -194,6 +206,7 @@
     },
     "proxyAktiv": {
       "label": "ODAS-Proxy aktivieren",
+      "category": "datasource",
       "hilfe": "Mit ja werden Datenabrufe über den ODAS-Proxy gesendet. Echte Proxy-Aufrufe sind nur im ODAS-Live-System prüfbar.",
       "default": "nein",
       "format": {
