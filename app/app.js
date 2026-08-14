@@ -81,7 +81,16 @@ function getOdasProxyEndpoint(targetUrl, pathname) {
   )}`;
 }
 
+function isKeineDatenquelleKonfiguriert(targetUrl) {
+  const quelle = String(targetUrl || "").trim();
+  return !quelle || /^\{\{.*\}\}$/.test(quelle) || /^<.*>$/.test(quelle);
+}
+
 async function fetchViaOdasProxy(targetUrl) {
+  if (isKeineDatenquelleKonfiguriert(targetUrl)) {
+    throw new Error("Keine Datenquelle konfiguriert.");
+  }
+
   const response = await fetch(getOdasProxyEndpoint(targetUrl), {
     method: "POST",
   });
@@ -99,6 +108,10 @@ async function fetchViaOdasProxy(targetUrl) {
 }
 
 async function fetchOdasResource(targetUrl, configdata = {}) {
+  if (isKeineDatenquelleKonfiguriert(targetUrl)) {
+    throw new Error("Keine Datenquelle konfiguriert.");
+  }
+
   if (isOdasProxyEnabled(configdata)) {
     return fetchViaOdasProxy(targetUrl);
   }
