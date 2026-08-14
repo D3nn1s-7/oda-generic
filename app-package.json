@@ -14,17 +14,9 @@
     "Die mitgelieferte Konfigurationsvorschau macht den wirksamen Instanz-Stand sichtbar und erleichtert die lokale Entwicklung.",
     "Vor einer Veröffentlichung werden Fachlogik, Metadaten, Datenmodell, Beschreibung, Screenshots und Icon durch app-spezifische Inhalte ersetzt."
   ],
-  "tags-funktion": [
-    "Vorlage",
-    "Konfigurationsvorschau",
-    "Proxy"
-  ],
-  "tags-dateityp": [
-    "JSON"
-  ],
-  "tags-datenart": [
-    "Konfigurationsdaten"
-  ],
+  "tags-funktion": ["Vorlage", "Konfigurationsvorschau", "Proxy"],
+  "tags-dateityp": ["JSON"],
+  "tags-datenart": ["Konfigurationsdaten"],
   "screenshots": [
     "assets/Desktop_Screenshot.png",
     "assets/Mobile_Screenshot.png"
@@ -37,6 +29,14 @@
   },
   "branding-css": "",
   "api-version": "1",
+  "odas-services": [
+    "proxy",
+    "ki",
+    "mail",
+    "tourismus-deutschland",
+    "email-atuh",
+    "storage"
+  ],
   "instanz-config": {
     "seitentitel": {
       "label": "Seitentitel",
@@ -211,10 +211,7 @@
       "default": "nein",
       "format": {
         "typ": "dropdown",
-        "optionen": [
-          "nein",
-          "ja"
-        ]
+        "optionen": ["nein", "ja"]
       },
       "erforderlich": "ja"
     }
