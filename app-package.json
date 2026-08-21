@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "generic",
   "name": "Generic Open Data App",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
   "kurzbeschreibung": "Technische ODAS-Vorlage mit Hash-Routing, Instanz-Konfiguration und optionalem Proxy-Muster für neue Open-Data-Apps.",
@@ -25,7 +25,7 @@
     "",
     "Die Generic-App lädt keinen Fachdatenbestand. Sie verwendet ausschließlich die lokale Instanz-Konfiguration und das gebündelte Beispielschema.",
     "",
-    "- **Instanz-Konfiguration:** lokale Datei `odas-config/config.json` bzw. ODAS-Konfiguration (`urlDaten`, `apiurl` – derzeit leer, in abgeleiteten Apps zu setzen)",
+    "- **Instanz-Konfiguration:** lokale Datei `odas-config/config.json` bzw. ODAS-Konfiguration (`urlDaten`, `apiurls` – derzeit leer, in abgeleiteten Apps zu setzen)",
     "- **Beispielschema:** `assets/schema.json` im App-Paket (Frictionless Table Schema)",
     "- **Portal-Platzhalter:** [{{odp.name}}]({{odp.url}}) – wird in abgeleiteten Apps durch die reale Portal- und Datensatz-URL ersetzt",
     "",
@@ -143,7 +143,7 @@
         "",
         "Die Generic-App lädt keinen Fachdatenbestand. Sie verwendet ausschließlich die lokale Instanz-Konfiguration und das gebündelte Beispielschema.",
         "",
-        "- **Instanz-Konfiguration:** lokale Datei `odas-config/config.json` bzw. ODAS-Konfiguration (`urlDaten`, `apiurl` – derzeit leer, in abgeleiteten Apps zu setzen)",
+        "- **Instanz-Konfiguration:** lokale Datei `odas-config/config.json` bzw. ODAS-Konfiguration (`urlDaten`, `apiurls` – derzeit leer, in abgeleiteten Apps zu setzen)",
         "- **Beispielschema:** `assets/schema.json` im App-Paket (Frictionless Table Schema)",
         "- **Portal-Platzhalter:** [{{odp.name}}]({{odp.url}}) – wird in abgeleiteten Apps durch die reale Portal- und Datensatz-URL ersetzt",
         "",
@@ -255,17 +255,24 @@
       },
       "erforderlich": "nein"
     },
-    "apiurl": {
-      "label": "URL zur Datenressource",
+    "apiurls": {
+      "label": "URLs zu Datenressourcen",
       "category": "datenherkunft",
-      "hilfe": "Direkter Download-, Datei- oder API-Endpunkt der tatsächlich verwendeten Datenquelle.",
-      "default": "",
-      "beispiel": "",
+      "hilfe": "Direkter Download-, Datei- oder API-Endpunkt der tatsächlich verwendeten Datenquelle(n). Mehrere Einträge möglich.",
+      "typ": "array",
       "format": {
         "typ": "url",
         "laenge": 500
       },
-      "erforderlich": "nein"
+      "urls": [
+        {
+          "name": "daten",
+          "label": "URL zur Datenressource",
+          "default": "",
+          "beispiel": "",
+          "erforderlich": "nein"
+        }
+      ]
     },
     "proxyAktiv": {
       "label": "ODAS-Proxy aktivieren",

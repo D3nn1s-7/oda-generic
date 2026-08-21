@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.13.0 - 2026-08-21
+- **CHG:** Skalares `apiurl` durch das Array-Feld `apiurls` ersetzt (`typ: "array"`, Einträge mit `name`/`label`/`url`). Neuer Standard portfolioweit; `apiurl` entfällt. Neuer Laufzeit-Helfer `getOdasApiUrl(configdata, name)` in `app/app.js`.
+
 ## 1.12.0 - 2026-08-20
 - Markdown-Metadaten: Paketbeschreibungen auf echtes Markdown umgestellt, exakte Identität Top-Level/Instanz hergestellt, lokale HTML-Fixture semantisch gespiegelt.
 

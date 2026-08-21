@@ -113,7 +113,7 @@ um einzelne Seiten anzupassen.
 | `brandingCSS` | optionaler CSS-Code der Instanz | nein |
 | `brandingCSSFile` | optionale URL zu einer Branding-CSS-Datei | nein |
 | `urlDaten` | Katalogseite des Datensatzes | nein |
-| `apiurl` | direkter Datei- oder API-Endpunkt | nein |
+| `apiurls` | Array benannter Datenressourcen (`name`, `label`, `url`); direkter Datei- oder API-Endpunkt je Eintrag | nein |
 | `proxyAktiv` | `nein` für Direktabruf, `ja` für ODAS-Proxy | ja |
 
 Jeder von `app/app.js` gelesene Konfigurationswert muss in `app-package.json` unter

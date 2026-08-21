@@ -13,7 +13,9 @@
  * ConfigData ist ein JSON enthält die Referenz
  * auf die Daten im CKAN Open Data Portal:
  *     {
- *         "apiurl": "https://open-data-musterstadt.ckan.de/dataset/db92da8e40f9/download/formular_multitemplate.json"
+ *         "apiurls": [
+ *             { "name": "daten", "label": "URL zur Datenressource", "url": "https://open-data-musterstadt.ckan.de/dataset/db92da8e40f9/download/formular_multitemplate.json" }
+ *         ]
  *     }
  *
  * @param {Object} configdata - Alle Konfigurationsdaten der App
@@ -127,6 +129,21 @@ async function fetchOdasResource(targetUrl, configdata = {}) {
       `Direkter Datenabruf fehlgeschlagen (${error.message}). Bitte prüfen Sie die Daten-URL und die CORS-Freigabe der Datenquelle.`,
     );
   }
+}
+
+/**
+ * Löst eine benannte Datenressource aus configdata.apiurls auf.
+ * Neue apiurls-Form (typ: "array"); das frühere skalare apiurl wird nicht mehr gelesen.
+ * @param {Object} configdata
+ * @param {string} name - der name-Schlüssel des gewünschten Eintrags
+ * @returns {string} getrimmte URL, oder "" für den Zustand "keine Quelle konfiguriert"
+ */
+function getOdasApiUrl(configdata, name) {
+  const liste = Array.isArray(configdata && configdata.apiurls)
+    ? configdata.apiurls
+    : [];
+  const treffer = liste.find((eintrag) => eintrag && eintrag.name === name);
+  return String((treffer && treffer.url) || "").trim();
 }
 
 async function fetchOdasJson(targetUrl, configdata = {}) {

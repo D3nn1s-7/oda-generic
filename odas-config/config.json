@@ -17,7 +17,7 @@
     "<h2>Datenquelle</h2>",
     "<p>Die Generic-App lädt keinen Fachdatenbestand. Sie verwendet ausschließlich die lokale Instanz-Konfiguration und das gebündelte Beispielschema.</p>",
     "<ul>",
-    "<li><strong>Instanz-Konfiguration:</strong> lokale Datei <code>odas-config/config.json</code> bzw. ODAS-Konfiguration (<code>urlDaten</code>, <code>apiurl</code> – derzeit leer, in abgeleiteten Apps zu setzen)</li>",
+    "<li><strong>Instanz-Konfiguration:</strong> lokale Datei <code>odas-config/config.json</code> bzw. ODAS-Konfiguration (<code>urlDaten</code>, <code>apiurls</code> – derzeit leer, in abgeleiteten Apps zu setzen)</li>",
     "<li><strong>Beispielschema:</strong> <code>assets/schema.json</code> im App-Paket (Frictionless Table Schema)</li>",
     "<li><strong>Portal-Platzhalter:</strong> <a href=\"{{odp.url}}\" target=\"_blank\">{{odp.name}}</a> – wird in abgeleiteten Apps durch die reale Portal- und Datensatz-URL ersetzt</li>",
     "</ul>",
@@ -48,6 +48,6 @@
   "brandingCSS": "",
   "brandingCSSFile": "../assets/branding.css",
   "urlDaten": "",
-  "apiurl": "",
+  "apiurls": [],
   "proxyAktiv": "nein"
 }
