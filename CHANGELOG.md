@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.14.0 - 2026-08-22
+- **CHG:** `version` in `app-package.json` zu `app-version` umbenannt.
+- **ENH:** Top-Level-Feld `app-package-version` ergänzt (Wert `"2"`: mehrere benannte API-URLs über `instanz-config.apiurls`).
+
 ## 1.13.0 - 2026-08-21
 - **CHG:** Skalares `apiurl` durch das Array-Feld `apiurls` ersetzt (`typ: "array"`, Einträge mit `name`/`label`/`url`). Neuer Standard portfolioweit; `apiurl` entfällt. Neuer Laufzeit-Helfer `getOdasApiUrl(configdata, name)` in `app/app.js`.
 
