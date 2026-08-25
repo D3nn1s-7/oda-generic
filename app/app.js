@@ -48,6 +48,10 @@ function isOdasProxyEnabled(configdata = {}) {
   return String(configdata.proxyAktiv || "").trim().toLowerCase() === "ja";
 }
 
+// Hinweis: seit der Proxy-Origin-Pruefung (ODAS-Plattform 2026-08-25) bekommt
+// /odp-data die volle Ziel-URL statt nur Pfad+Query (siehe getOdasProxyEndpoint).
+// extractPathFromUrl() bleibt als oeffentlicher Helfer erhalten (Testvertraege),
+// wird intern aber nicht mehr aufgerufen.
 function extractPathFromUrl(url) {
   try {
     const parsedUrl = new URL(url);
@@ -78,9 +82,7 @@ function getOdasAppBasePath(pathname) {
 
 function getOdasProxyEndpoint(targetUrl, pathname) {
   const appPath = getOdasAppBasePath(pathname);
-  return `${appPath}/odp-data?path=${encodeURIComponent(
-    extractPathFromUrl(targetUrl),
-  )}`;
+  return `${appPath}/odp-data?path=${encodeURIComponent(targetUrl)}`;
 }
 
 function isKeineDatenquelleKonfiguriert(targetUrl) {
