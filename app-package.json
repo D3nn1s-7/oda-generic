@@ -114,7 +114,7 @@
         "_multiline_",
         "Sie haben Fragen, Hinweise oder Verbesserungsvorschläge zu dieser App? Wenden Sie sich gern an den Anbieter des Open Data Portals.",
         "",
-        "- Tel.: [{{odp.anbieter.tel}}](tel:{{odp.anbieter.telcode}})",
+        "- Tel.: [{{odp.anbieter.tel}}](tel:{{odp.anbieter.tel}})",
         "- E-Mail: [{{odp.anbieter.email}}](mailto:{{odp.anbieter.email}})"
       ],
       "format": {
@@ -177,7 +177,7 @@
         "{{odp.anbieter.strasse}}  ",
         "{{odp.anbieter.plzort}}",
         "",
-        "Website: [{{odp.anbieter.url-extern}}]({{odp.anbieter.url-extern}})",
+        "Website: [{{odp.anbieter.url}}]({{odp.anbieter.url}})",
         "",
         "## Ansprechperson",
         "",
