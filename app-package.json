@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "generic",
   "name": "Generic Open Data App",
-  "app-version": "1.15.0",
+  "app-version": "1.15.1",
   "app-package-version": "2",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
@@ -58,7 +58,7 @@
   "daten": {
     "beschreibung": "Die Generic-App lädt selbst keinen Fachdatenbestand. assets/schema.json ist ein gültiges Frictionless-Beispielschema und muss in abgeleiteten Apps durch das tatsächliche Tabellenmodell ersetzt werden.",
     "schema": "assets/schema.json",
-    "beispiel": "Beispielstruktur für tabellarische Open Data; vor der Veröffentlichung durch app-spezifische Angaben ersetzen.",
+    "beispiel": "Platzhalter für abgeleitete Apps: daten.beispiel beschreibt die Antwortform der Quelle (z. B. CKAN-Datastore mit result.records, CSV-Datei mit Kopfzeile), daten.beispiel-url zeigt auf einen direkt ladbaren Beispiel-Endpunkt (identisch zum apiurls-Beispiel). Vor der Veröffentlichung durch app-spezifische Angaben ersetzen.",
     "beispiel-url": ""
   },
   "branding-css": "",

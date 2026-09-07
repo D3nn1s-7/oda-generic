@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.15.1 - 2026-09-07
+- **FIX:** Frictionless-Template-Konvention: `daten.beispiel` leitet das Ausfüllen für abgeleitete Apps an (Antwortform + Beispiel-URL-Muster); `beispiel-url` bleibt bewusst leer (Template lädt keine Fachdaten — zulässige Leer-Stelle, kein Defekt).
+
 ## 1.15.0 - 2026-08-25
 - **CHG:** Proxy-Aufruf sendet die vollständige Ziel-URL statt nur Pfad+Query, damit die neue Origin-Allowlist-Prüfung der ODAS-Plattform greift (bisher implizite Auflösung gegen den ersten konfigurierten `apiurl`).
 - **FIX:** Tote Anbieter-Shortcodes in Kontakt/Impressum ersetzt (`{{odp.anbieter.url-extern}}` → `{{odp.anbieter.url}}`, `tel:{{odp.anbieter.telcode}}` → `tel:{{odp.anbieter.tel}}`).
