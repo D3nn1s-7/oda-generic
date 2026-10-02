@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.15.2 - 2026-10-02
+- FIX: ODAS-Service-Deklaration in `odas-services` korrigiert.
+
 ## 1.15.1 - 2026-09-07
 - **FIX:** Frictionless-Template-Konvention: `daten.beispiel` leitet das Ausfüllen für abgeleitete Apps an (Antwortform + Beispiel-URL-Muster); `beispiel-url` bleibt bewusst leer (Template lädt keine Fachdaten — zulässige Leer-Stelle, kein Defekt).
 
