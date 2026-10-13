@@ -1,0 +1,109 @@
+{
+  "version": "1",
+  "cases": [
+    {
+      "name": "gute-daten",
+      "sourceName": "daten",
+      "config": {
+        "apiurls": [
+          {
+            "name": "daten",
+            "url": "https://opendata.beispielstadt.example/api/3/action/datastore_search?resource_id=beispiel"
+          }
+        ]
+      },
+      "files": {
+        "https://opendata.beispielstadt.example/api/3/action/datastore_search?resource_id=beispiel": "tests/datenvertrag/fixtures/gut.json"
+      },
+      "expected": {
+        "status": "passed",
+        "issueCodes": [],
+        "coverage": "complete"
+      }
+    },
+    {
+      "name": "falscher-typ",
+      "sourceName": "daten",
+      "config": {
+        "apiurls": [
+          {
+            "name": "daten",
+            "url": "https://opendata.beispielstadt.example/api/3/action/datastore_search?resource_id=beispiel"
+          }
+        ]
+      },
+      "files": {
+        "https://opendata.beispielstadt.example/api/3/action/datastore_search?resource_id=beispiel": "tests/datenvertrag/fixtures/falscher-typ.json"
+      },
+      "expected": {
+        "status": "data-error",
+        "issueCodes": [
+          "cell/type"
+        ],
+        "coverage": "complete"
+      }
+    },
+    {
+      "name": "pflichtwert-fehlt",
+      "sourceName": "daten",
+      "config": {
+        "apiurls": [
+          {
+            "name": "daten",
+            "url": "https://opendata.beispielstadt.example/api/3/action/datastore_search?resource_id=beispiel"
+          }
+        ]
+      },
+      "files": {
+        "https://opendata.beispielstadt.example/api/3/action/datastore_search?resource_id=beispiel": "tests/datenvertrag/fixtures/pflichtwert-fehlt.json"
+      },
+      "expected": {
+        "status": "data-error",
+        "issueCodes": [
+          "cell/required"
+        ],
+        "coverage": "complete"
+      }
+    },
+    {
+      "name": "falsche-antwortform",
+      "sourceName": "daten",
+      "config": {
+        "apiurls": [
+          {
+            "name": "daten",
+            "url": "https://opendata.beispielstadt.example/api/3/action/datastore_search?resource_id=beispiel"
+          }
+        ]
+      },
+      "files": {
+        "https://opendata.beispielstadt.example/api/3/action/datastore_search?resource_id=beispiel": "tests/datenvertrag/fixtures/falsche-antwortform.json"
+      },
+      "expected": {
+        "status": "unsupported",
+        "issueCodes": [
+          "reader/unsupported"
+        ],
+        "coverage": "none"
+      }
+    },
+    {
+      "name": "keine-quelle-konfiguriert",
+      "sourceName": "daten",
+      "config": {
+        "apiurls": [
+          {
+            "name": "daten",
+            "url": ""
+          }
+        ]
+      },
+      "files": {},
+      "expected": {
+        "status": "not-configured",
+        "issueCodes": [],
+        "coverage": "none"
+      }
+    }
+  ]
+}

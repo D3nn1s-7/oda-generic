@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.16.0 - 2026-10-13
+- ENH: Beispiel-Datenvertrag `assets/datenvertraege.json` (`daten.pruefung`) für die Store-Datenprüfung: Slot `daten` als CKAN-JSON (`/result/records`) gegen `assets/schema.json`, `wert`/`stand` als ausdrücklich optionale Felder. Positive und negative Beispiel-Testfälle unter `tests/datenvertrag/` (nicht im ZIP). Abgeleitete Apps ersetzen Vertrag, Schema und Testfälle durch ihre tatsächliche Quelle.
+
 ## 1.15.2 - 2026-10-02
 - FIX: ODAS-Service-Deklaration in `odas-services` korrigiert.
 
