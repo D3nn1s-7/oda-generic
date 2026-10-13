@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.16.1 - 2026-10-13
+- FIX: Standard-Fehleranzeige gibt präzisere Tipps: ein „Failed to fetch“ ohne Proxy-Kontext erhält einen Netzwerk-Hinweis statt `proxyAktiv`; der 404-Hinweis gilt nur noch für echte HTTP-404-Antworten und nennt den lokal fehlenden Proxy/Relay statt pauschal „Datensatz auf dem Portal nicht gefunden“.
+
 ## 1.16.0 - 2026-10-13
 - ENH: Beispiel-Datenvertrag `assets/datenvertraege.json` (`daten.pruefung`) für die Store-Datenprüfung: Slot `daten` als CKAN-JSON (`/result/records`) gegen `assets/schema.json`, `wert`/`stand` als ausdrücklich optionale Felder. Positive und negative Beispiel-Testfälle unter `tests/datenvertrag/` (nicht im ZIP). Abgeleitete Apps ersetzen Vertrag, Schema und Testfälle durch ihre tatsächliche Quelle.
 
