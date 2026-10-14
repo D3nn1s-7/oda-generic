@@ -1,26 +1,13 @@
 {
   "version": "1",
-  "table-schema-version": "1.0",
   "quellen": {
     "daten": {
-      "bedarf": "optional",
-      "zugriff": { "typ": "direkt" },
-      "pruefungen": [
-        {
-          "name": "datensaetze",
-          "ressource": { "typ": "antwort" },
-          "varianten": [
-            {
-              "name": "ckan-json",
-              "erkennung": { "format": "json", "array": "/result/records" },
-              "leser": { "profil": "json-v1" },
-              "verfahren": "frictionless",
-              "zeilen": "/result/records",
-              "schema": "assets/schema.json",
-              "felder": { "optional": ["wert", "stand"] }
-            }
-          ]
-        }
+      "leser": "json-v1",
+      "zeilen": "/result/records",
+      "schema": "assets/schema.json",
+      "optional": [
+        "wert",
+        "stand"
       ]
     }
   }
