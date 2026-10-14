@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.16.3 - 2026-10-14
+- ENH: `fetchOdasJson()`, `fetchOdasResource()` und `fetchViaOdasProxy()` nehmen ein optionales `{ signal }` (AbortController) und reichen es bis zum `fetch()` durch; ein abgebrochener Abruf bleibt als `AbortError` erkennbar statt als „Direkter Datenabruf fehlgeschlagen“ zu erscheinen. Ohne Signal unverändert. Entspricht der Proxy-Referenz des odas-app-builder-Skills.
+- TEST: `tests/fetch-helpers.test.cjs` gegen die ausgelieferte `app/app.js` (nicht im ZIP).
+
 ## 1.16.2 - 2026-10-14
 - CHG: Datenvertrag `assets/datenvertraege.json` auf die flache Form der Store-Datenprüfung umgestellt: ein Eintrag je Slot (`leser: "json-v1"`, `zeilen`, `schema`, `optional`); Pflicht oder optional folgt allein `erforderlich` des Slots. Prüfinhalt und Testfälle unverändert.
 

@@ -90,13 +90,16 @@ function isKeineDatenquelleKonfiguriert(targetUrl) {
   return !quelle || /^\{\{.*\}\}$/.test(quelle) || /^<.*>$/.test(quelle);
 }
 
-async function fetchViaOdasProxy(targetUrl) {
+// Optionales { signal } (AbortController) reicht einen Abbruch bis zum fetch() durch,
+// z. B. aus onPageLeave(); ein AbortError bleibt erkennbar.
+async function fetchViaOdasProxy(targetUrl, { signal } = {}) {
   if (isKeineDatenquelleKonfiguriert(targetUrl)) {
     throw new Error("Keine Datenquelle konfiguriert.");
   }
 
   const response = await fetch(getOdasProxyEndpoint(targetUrl), {
     method: "POST",
+    signal,
   });
 
   if (!response.ok) {
@@ -116,22 +119,23 @@ async function fetchViaOdasProxy(targetUrl) {
   return proxyData.content;
 }
 
-async function fetchOdasResource(targetUrl, configdata = {}) {
+async function fetchOdasResource(targetUrl, configdata = {}, { signal } = {}) {
   if (isKeineDatenquelleKonfiguriert(targetUrl)) {
     throw new Error("Keine Datenquelle konfiguriert.");
   }
 
   if (isOdasProxyEnabled(configdata)) {
-    return fetchViaOdasProxy(targetUrl);
+    return fetchViaOdasProxy(targetUrl, { signal });
   }
 
   try {
-    const response = await fetch(targetUrl);
+    const response = await fetch(targetUrl, { signal });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
-    return response.text();
+    return await response.text();
   } catch (error) {
+    if (error && error.name === "AbortError") throw error;
     throw new Error(
       `Direkter Datenabruf fehlgeschlagen (${error.message}). Bitte prüfen Sie die Daten-URL und die CORS-Freigabe der Datenquelle.`,
     );
@@ -153,8 +157,8 @@ function getOdasApiUrl(configdata, name) {
   return String((treffer && treffer.url) || "").trim();
 }
 
-async function fetchOdasJson(targetUrl, configdata = {}) {
-  const rawContent = await fetchOdasResource(targetUrl, configdata);
+async function fetchOdasJson(targetUrl, configdata = {}, options = {}) {
+  const rawContent = await fetchOdasResource(targetUrl, configdata, options);
   try {
     return JSON.parse(rawContent);
   } catch (_error) {
