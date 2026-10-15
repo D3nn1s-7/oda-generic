@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.16.4 - 2026-10-15
+- FIX: Kopfzeile bei 360 px ohne Überlauf (Template): Logo- und Burger-Spalte passen sich der Breite an, das Menü-Symbol ragt nicht mehr über den rechten Rand. Keine Änderung an App-Code oder Konfiguration.
+
 ## 1.16.3 - 2026-10-14
 - ENH: `fetchOdasJson()`, `fetchOdasResource()` und `fetchViaOdasProxy()` nehmen ein optionales `{ signal }` (AbortController) und reichen es bis zum `fetch()` durch; ein abgebrochener Abruf bleibt als `AbortError` erkennbar statt als „Direkter Datenabruf fehlgeschlagen“ zu erscheinen. Ohne Signal unverändert. Entspricht der Proxy-Referenz des odas-app-builder-Skills.
 - TEST: `tests/fetch-helpers.test.cjs` gegen die ausgelieferte `app/app.js` (nicht im ZIP).
